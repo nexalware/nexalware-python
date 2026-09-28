@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install package and test tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install pytest build
+
+      - name: Run tests (if a tests folder exists)
+        run: |
+          if [ -d tests ]; then pytest; else echo "No tests folder, skipping"; fi
+
+      - name: Check the package builds
+        run: python -m build

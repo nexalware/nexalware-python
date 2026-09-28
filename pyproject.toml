@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexalware"
+version = "0.1.4"
+description = "Typed client for the Nexalware API - control physical devices and read their telemetry from any Python agent or app."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "Nexalware" }]
+keywords = ["nexalware", "iot", "device-control", "robotics", "sdk"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Home Automation",
+]
+# Deliberately zero third-party dependencies, built on urllib from the
+# standard library, so dropping this into any existing agent environment
+# can never trigger a dependency conflict.
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/nexalware/nexalware-python"
+Documentation = "https://docs.nexalware.com/docs/sdk/sdk-python"
+Repository = "https://github.com/nexalware/nexalware-python"
+Issues = "https://github.com/nexalware/nexalware-python/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+nexalware = ["py.typed"]
