@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nexalware"
-version = "0.1.4"
+version = "0.1.5"
 description = "Typed client for the Nexalware API - control physical devices and read their telemetry from any Python agent or app."
 readme = "README.md"
 requires-python = ">=3.9"
